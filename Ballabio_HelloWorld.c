@@ -1,9 +1,9 @@
 // BALLABIO MATTEO  5H			
-//ESERCIZIO SVOLTO IN C
+// ESERCIZIO SVOLTO IN C
 
 #include <stdio.h>
 
 int main()
 {
-	printf("Hello Word");
+	printf("Hello World");
 }
