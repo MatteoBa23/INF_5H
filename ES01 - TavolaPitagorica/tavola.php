@@ -3,7 +3,7 @@
 <title>Tavola Pitagorica</title>
 </head>
 <body>
-<h1>Tavolozza Pitagorica</h1>
+<h1>Tavola Pitagorica - Ballabio Matteo</h1>
 <table border="1" cellspacing="3" cellpadding="2">
 <?php
 $limite = 10;
