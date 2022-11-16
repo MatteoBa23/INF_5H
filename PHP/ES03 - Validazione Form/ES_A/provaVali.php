@@ -1,4 +1,4 @@
- <html>
+<html>
 <head>
 </head>
 <body>  
@@ -8,15 +8,75 @@
 $nome = $cognome = $datanascita = $email = $nickname = "";
 $cellulare = 0;
 //funzione trim elimina gli spazi prima della stringa
-$nome = trim($_POST["nome"]);
-$cognome = trim($_POST["cognome"]);
-$datanascita = trim($_POST["datanascita"]);
-$email = trim($_POST["email"]);
-$cellulare = trim($_POST["cellulare"]);
-$nickname = trim($_POST["nickname"]);
-$password = trim($_POST["password"]);
+$nome = controlloNome($_POST["nome"]);
+$cognome = controlloCog($_POST["cognome"]);
+$datanascita = controlloData($_POST["datanascita"]);
+$email = controlloEmail($_POST["email"]);
+$cellulare = controlloCell($_POST["cellulare"]);
+$nickname = controlloNick($_POST["nickname"]);
+$password = controlloPass($_POST["password"]);
 
+function controlloNome($nome){
+    $nome = trim($nome);
+    if(preg_match('/^[a-zA-Z]*$/',$nome))
+    {
+        echo "Nome inserito: "; 
+        echo $nome;
+    }else
+     echo "Username non valido. Ammessi solo caratteri";
 
+    return $nome;
+}
+function controlloCog($cognome){
+    $cognome = trim($cognome);
+    if(preg_match('/^[a-zA-Z]*$/',$cognome))
+    {
+        echo "Cognome inserito: ";
+        echo $cognome;
+    }else
+        echo "Cognome non valido. Ammessi solo caratteri";
+    echo "<br>"; 
+    return $cognome;
+}
+function controlloData($data){
+    return $data;
+}
+function controlloEmail($email){
+    $email = trim($email);
+    if(preg_match("/^[a-z0-9_.-]*@[a-z0-9.-]+\.[a-z]{2,4}$/",$email))
+    {
+        echo "Email inserita: ";
+        echo $email;
+    }else
+        echo "Email non valida";
+    echo "<br>";
+    return $email;
+}
+function controlloCell($cell){
+    $cell = trim($cell);
+    if(preg_match('/^[0-9]/',$cell))
+    {
+        echo "Cellulare inserito: ";
+        echo $cell;
+    }else
+        echo "Cellulare non valido. Ammesse solo cifre";
+    echo "<br>";
+    return $cell;
+}
+function controlloNick($nick){
+    if(preg_match('/^[a-zA-Z0-9_@#]*$/',$nick))
+    {
+        echo "Nickname inserito: "; 
+        echo $nick;
+    }else
+        echo "Nickname non valido";
+    echo "<br>";
+    return $nick;
+}
+function controlloPass($pass){
+    $pass = trim($pass);
+    return $pass;
+}
 ?>
 
 <h2>Validazione php</h2>
@@ -31,25 +91,5 @@ $password = trim($_POST["password"]);
 		Password*: <input type="password" name="password"><br><br> 
 	<input type="submit" value="Invio"><!-- tasto invio -->
 	</form>
-
-<?php
-echo "<h2>Input:</h2>";
-echo "<br>Nome inserito: ";
-echo $nome;
-echo "<br>Cognome inserito: ";
-echo $cognome;
-echo "<br>Data di nascita inserita: ";
-echo $datanascita;
-echo "<br>";
-echo $email;
-echo "<br>";
-echo $cellulare;
-echo "<br>";
-echo $nickname;
-echo "<br>";
-echo $password;
-echo "<br>";
-?>
-
 </body>
 </html>
