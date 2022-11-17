@@ -83,6 +83,11 @@ function controlloPass($pass){
 
 <h2>Validazione php</h2>
 <!-- creazione form -->
+
+	<div class="rett-form">
+	<div class="title-text">
+        <div class="title login">Login</div>
+      </div>
 	<form name="frmLogin" method="POST" action="<?php ($_SERVER["PHP_SELF"]);?>">
 		Username*: <input type="text" name="nome"><br><br>
 		Cognome*: <input type="text" name="cognome"><br><br>
@@ -91,7 +96,11 @@ function controlloPass($pass){
 		Cellulare: <input type="text" name="cellulare"><br><br>
 		Nickname*: <input type="text" name="nickname"><br><br>
 		Password*: <input type="password" name="password"><br><br> 
-	<input type="submit" value="Invio"><!-- tasto invio -->
+	<div class="field btn">
+        <div class="btn-layer"></div>
+        <input type="submit" value="Login">
+    </div>
+	</div>
 	</form>
 </body>
 </html>
