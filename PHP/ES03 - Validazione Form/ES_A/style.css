@@ -1,44 +1,93 @@
-body{
-	background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+html,
+body {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  background: -webkit-linear-gradient(left, #a445b2, #fa4299);
 }
 
-h2{
-	text-align: center;
+.risultati{
+    text-align: center;
+    padding-right: 15px;
+    padding-top: 30px;
+}
+.tab-form {
+    place-items: center;
+  max-width: 390px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 5px;
+}
+.tab-form .title-text .title {
+  display: flex;
+  width: 200%;
+  text-align: center;
+  
+}
+.tab-form .title {
+  width: 50%;
+  font-size: 20px;
+  font-weight: 600;
 }
 
-form{
-	text-align: center;
+.tab-form .form-container {
+  width: 100%;
+  overflow: hidden;
+}
+.form-container .form-campi {
+  display: flex;
+  width: 200%;
 }
 
-form .btn {
+.form-campi form .campo {
+  height: 50px;
+  width: 137%;
+  margin-top: 20px;
+}
+.form-campi form .campo input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 15px;
+  border-radius: 5px;
+  border: 1px solid lightblue;
+  border-bottom-width: 2px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.form-campi form .campo input::placeholder {
+  color: #999;
+}
+
+form .tasto {
   height: 50px;
   width: 100%;
   border-radius: 5px;
   position: relative;
   overflow: hidden;
 }
-form .btn .btn-layer {
+form .tasto .tasto-layer {
   height: 100%;
   width: 300%;
   position: absolute;
   left: -100%;
-  background: -webkit-linear-gradient(
-    right,
-    #a445b2,
-    #fa4299,
-    #a445b2,
-    #fa4299
-  );
+  background: -webkit-linear-gradient(#fa4299, #a445b2);
   border-radius: 5px;
-  transition: all 0.4s ease;
 }
-form .btn:hover .btn-layer {
-  left: 0;
-}
-form .btn input[type="submit"] {
+
+form .tasto input[type="submit"] {
   height: 100%;
   width: 100%;
-  z-index: 1;
   position: relative;
   background: none;
   border: none;
@@ -47,24 +96,5 @@ form .btn input[type="submit"] {
   border-radius: 5px;
   font-size: 20px;
   font-weight: 500;
-  cursor: pointer;
 }
 
-.rett-form {
-  max-width: 390px;
-  background: #fff;
-  padding: 30px;
-  border-radius: 5px;
-}
-
-.rett-form .title-text {
-  display: flex;
-  width: 200%;
-}
-.rett-form .title {
-  width: 50%;
-  font-size: 35px;
-  font-weight: 600;
-  text-align: center;
-  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
