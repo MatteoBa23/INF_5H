@@ -5,7 +5,10 @@
 </head>
 <body>  
 
+<div class="risultati">
+    <h2>Input inseriti</h2>
 <?php
+
 //inizializzazione delle variabili
 $nome = $cognome = $datanascita = $email = $nickname = "";
 $cellulare = 0;
@@ -22,7 +25,7 @@ function controlloNome($nome){
     $nome = trim($nome);	//funzione trim elimina gli spazi prima della stringa
     if(preg_match('/^[a-zA-Z]*$/',$nome))
     {
-        echo "Nome inserito: "; 
+        echo "Nome: "; 
         echo $nome;
     }else
      echo "Username non valido. Ammessi solo caratteri";
@@ -33,7 +36,7 @@ function controlloCog($cognome){
     $cognome = trim($cognome);
     if(preg_match('/^[a-zA-Z]*$/',$cognome))
     {
-        echo "Cognome inserito: ";
+        echo "Cognome: ";
         echo $cognome;
     }else
         echo "Cognome non valido. Ammessi solo caratteri";
@@ -47,7 +50,7 @@ function controlloEmail($email){
     $email = trim($email);
     if(preg_match("/^[a-z0-9_.-]*@[a-z0-9.-]+\.[a-z]{2,4}$/",$email))
     {
-        echo "Email inserita: ";
+        echo "Email: ";
         echo $email;
     }else
         echo "Email non valida";
@@ -58,7 +61,7 @@ function controlloCell($cell){
     $cell = trim($cell);
     if(preg_match('/^[0-9]/',$cell))
     {
-        echo "Cellulare inserito: ";
+        echo "Cellulare: ";
         echo $cell;
     }else
         echo "Cellulare non valido. Ammesse solo cifre";
@@ -68,7 +71,7 @@ function controlloCell($cell){
 function controlloNick($nick){
     if(preg_match('/^[a-zA-Z0-9_@#]*$/',$nick))
     {
-        echo "Nickname inserito: "; 
+        echo "Nickname: "; 
         echo $nick;
     }else
         echo "Nickname non valido";
@@ -80,27 +83,44 @@ function controlloPass($pass){
     return $pass;
 }
 ?>
+</div>
 
-<h2>Validazione php</h2>
-<!-- creazione form -->
-
-	<div class="rett-form">
-	<div class="title-text">
-        <div class="title login">Login</div>
+    <div class="tab-form">
+      <div class="title-text">
+        <div class="title">Login</div>
+        <div class="title-login">* = campi obbligatori</div>
       </div>
-	<form name="frmLogin" method="POST" action="<?php ($_SERVER["PHP_SELF"]);?>">
-		Username*: <input type="text" name="nome"><br><br>
-		Cognome*: <input type="text" name="cognome"><br><br>
-		Data di nascita*: <input type="date" name="datanascita"><br><br> 
-		Email*: <input type="text" name="email"><br><br>
-		Cellulare: <input type="text" name="cellulare"><br><br>
-		Nickname*: <input type="text" name="nickname"><br><br>
-		Password*: <input type="password" name="password"><br><br> 
-	<div class="field btn">
-        <div class="btn-layer"></div>
-        <input type="submit" value="Login">
+      <div class="form-container">
+        <div class="form-campi">
+          <form action="<?php ($_SERVER["PHP_SELF"]);?>" class="login" method="POST" name="frmLogin">
+            <div class="campo">
+              <input type="text" placeholder="Nome*" name="nome">
+            </div>
+            <div class="campo">
+              <input type="text" placeholder="Cognome*" name="cognome">
+            </div>
+            <div class="campo">
+              <input type="date" placeholder="Data di nascita*" name="datanascita">
+            </div>
+            <div class="campo">
+              <input type="text" placeholder="Email*" name="email">
+            </div>
+            <div class="campo">
+              <input type="text" placeholder="Cellulare" name="cellulare">
+            </div>
+            <div class="campo">
+              <input type="text" placeholder="Nickname*" name="nickname">
+            </div>
+            <div class="campo">
+              <input type="password" placeholder="Password*" name="password">
+            </div>
+            <div class="campo tasto">
+              <div class="tasto-layer"></div>
+              <input type="submit" value="Login">
+            </div>     
+          </form> 
+        </div>
+      </div>
     </div>
-	</div>
-	</form>
 </body>
 </html>
