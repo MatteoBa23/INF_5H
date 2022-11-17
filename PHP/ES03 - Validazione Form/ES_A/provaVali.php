@@ -1,5 +1,7 @@
 <html>
 <head>
+<title>Validazione Form</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>  
 
@@ -7,7 +9,7 @@
 //inizializzazione delle variabili
 $nome = $cognome = $datanascita = $email = $nickname = "";
 $cellulare = 0;
-//funzione trim elimina gli spazi prima della stringa
+
 $nome = controlloNome($_POST["nome"]);
 $cognome = controlloCog($_POST["cognome"]);
 $datanascita = controlloData($_POST["datanascita"]);
@@ -17,14 +19,14 @@ $nickname = controlloNick($_POST["nickname"]);
 $password = controlloPass($_POST["password"]);
 
 function controlloNome($nome){
-    $nome = trim($nome);
+    $nome = trim($nome);	//funzione trim elimina gli spazi prima della stringa
     if(preg_match('/^[a-zA-Z]*$/',$nome))
     {
         echo "Nome inserito: "; 
         echo $nome;
     }else
      echo "Username non valido. Ammessi solo caratteri";
-
+	echo "<br>";
     return $nome;
 }
 function controlloCog($cognome){
