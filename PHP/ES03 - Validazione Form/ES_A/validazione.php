@@ -13,6 +13,14 @@
 $nome = $cognome = $datanascita = $email = $nickname = "";
 $cellulare = 0;
 
+//dichiarazione errori 
+$errNome="";
+$errCognome="";
+$errEmail="";
+$errPassword="";
+$errCellulare="";
+$errNick="";
+
 $nome = controlloNome($_POST["nome"]);
 $cognome = controlloCog($_POST["cognome"]);
 $datanascita = controlloData($_POST["datanascita"]);
@@ -27,8 +35,11 @@ function controlloNome($nome){
     {
         echo "Nome: "; 
         echo $nome;
-    }else
-     echo "Username non valido. Ammessi solo caratteri";
+    }else if($nome=="")
+     $errNome="Campo obbligatorio";
+    else
+      echo "Nome deve contenere solo caratteri";
+     
 	echo "<br>";
     return $nome;
 }
@@ -38,8 +49,10 @@ function controlloCog($cognome){
     {
         echo "Cognome: ";
         echo $cognome;
-    }else
-        echo "Cognome non valido. Ammessi solo caratteri";
+    }else if($cognome=="")
+        $errCognome="Campo obbligatorio";
+    else  
+      echo "Cognome deve contenere solo caratteri";
     echo "<br>"; 
     return $cognome;
 }
@@ -52,8 +65,10 @@ function controlloEmail($email){
     {
         echo "Email: ";
         echo $email;
-    }else
-        echo "Email non valida";
+    }else if($email=="")
+        $errEmail="Campo obbligatorio";
+    else
+      echo "Email deve contenere solo caratteri";
     echo "<br>";
     return $email;
 }
@@ -63,8 +78,10 @@ function controlloCell($cell){
     {
         echo "Cellulare: ";
         echo $cell;
-    }else
-        echo "Cellulare non valido. Ammesse solo cifre";
+    }else if($cell=="")
+        $errCellulare="Campo obbligatorio";
+    else  
+      echo "Cell deve contenere solo numeri";
     echo "<br>";
     return $cell;
 }
@@ -73,8 +90,10 @@ function controlloNick($nick){
     {
         echo "Nickname: "; 
         echo $nick;
-    }else
-        echo "Nickname non valido";
+    }else if($nick=="")
+        $errNick="Campo obbligatorio";
+    else
+      echo "Nick deve contenere solo caratteri";
     echo "<br>";
     return $nick;
 }
