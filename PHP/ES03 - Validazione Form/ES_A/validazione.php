@@ -38,6 +38,7 @@ function controlloNome($nome){
     }else if($nome=="")
      $errNome="Campo obbligatorio";
     else
+	    
       echo "Nome deve contenere solo caratteri";
      
 	echo "<br>";
