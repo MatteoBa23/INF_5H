@@ -12,16 +12,17 @@ body {
   width: 100%;
   padding-left: 15px;
   padding-bottom: 15px;
-  background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+  background: -webkit-linear-gradient(left, #0000ff #00ffff);
 }
 
-.risultati{
-    text-align: center;
-    padding-right: 15px;
-    padding-top: 30px;
+.risultati {
+  text-align: center;
+  padding-right: 15px;
+  padding-top: 30px;
 }
+
 .tab-form {
-    place-items: center;
+  place-items: center;
   max-width: 390px;
   background: #fff;
   padding: 30px;
@@ -31,7 +32,6 @@ body {
   display: flex;
   width: 200%;
   text-align: center;
-  
 }
 .tab-form .title {
   width: 50%;
