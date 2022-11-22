@@ -21,28 +21,30 @@ $errPassword="";
 $errCellulare="";
 $errNick="";
 
-$nome = controlloNome($_POST["nome"]);
-$cognome = controlloCog($_POST["cognome"]);
-$datanascita = controlloData($_POST["datanascita"]);
-$email = controlloEmail($_POST["email"]);
-$cellulare = controlloCell($_POST["cellulare"]);
-$nickname = controlloNick($_POST["nickname"]);
-$password = controlloPass($_POST["password"]);
+if(isset($_POST["submit"])) {
+  $nome = controlloNome($errNome, $_POST["nome"]);
+  $cognome = controlloCog($_POST["cognome"]);
+  $datanascita = controlloData($_POST["datanascita"]);
+  $email = controlloEmail($_POST["email"]);
+  $cellulare = controlloCell($_POST["cellulare"]);
+  $nickname = controlloNick($_POST["nickname"]);
+  $password = controlloPass($_POST["password"]);
+}
 
-function controlloNome($nome){
+
+function controlloNome($errNome,$nome){
     $nome = trim($nome);	//funzione trim elimina gli spazi prima della stringa
     if(preg_match('/^[a-zA-Z]*$/',$nome))
     {
         echo "Nome: "; 
         echo $nome;
     }else if($nome=="")
-     $errNome="Campo obbligatorio";
+        $errNome="Campo obbligatorio";
     else
-	    
       echo "Nome deve contenere solo caratteri";
      
 	echo "<br>";
-    return $nome;
+    return $errNome;
 }
 function controlloCog($cognome){
     $cognome = trim($cognome);
@@ -116,6 +118,7 @@ function controlloPass($pass){
             <div class="campo">
               <input type="text" placeholder="Nome*" name="nome">
             </div>
+            <span style="color:#8866ff;"><?php echo $errNome;?></span>
             <div class="campo">
               <input type="text" placeholder="Cognome*" name="cognome">
             </div>
