@@ -10,12 +10,12 @@
 <?php
 
 //inizializzazione delle variabili
-$nome = $cognome = $datanascita = $email = $nickname = $cellulare = "";
+$nome = $cognome = $datanascita = $email = $nickname = $cellulare = $password = "";
 
 //inizializzazione variabili per errori
 $errNome = $errCognome = $errData = $errEmail = $errNick = $errPasw = "";
 
-if(isset($_POST["submit"])){
+if(isset($_POST["nome"])){
 	$nome = trim($_POST["nome"]);
 	$cognome = trim($_POST["cognome"]);
 	$datanascita = trim($_POST["datanascita"]);
@@ -24,6 +24,7 @@ if(isset($_POST["submit"])){
 	$nickname = trim($_POST["nickname"]);
 	$password = trim($_POST["password"]);
 }
+
 //controllo campo nome
 if(preg_match('/^[a-zA-Z]*$/',$nome))
 {
@@ -103,25 +104,30 @@ echo "<br>";
             <div class="campo">
               <input type="text" placeholder="Nome*" name="nome">
             </div>
-			
+            <span style="color:ff1d0b;"><?php echo $errNome;?></span>
             <div class="campo">
               <input type="text" placeholder="Cognome*" name="cognome">
             </div>
+            <span style="color:ff1d0b;"><?php echo $errCognome;?></span>
             <div class="campo">
               <input type="date" placeholder="Data di nascita*" name="datanascita">
             </div>
+            <span style="color:ff1d0b;"><?php echo $errData;?></span>
             <div class="campo">
               <input type="text" placeholder="Email*" name="email">
             </div>
+            <span style="color:ff1d0b;"><?php echo $errEmail;?></span>
             <div class="campo">
               <input type="text" placeholder="Cellulare" name="cellulare">
             </div>
             <div class="campo">
               <input type="text" placeholder="Nickname*" name="nickname">
             </div>
+            <span style="color:ff1d0b;"><?php echo $errNick;?></span>
             <div class="campo">
               <input type="password" placeholder="Password*" name="password">
             </div>
+            <span style="color:ff1d0b;"><?php echo $errPasw;?></span>
             <div class="campo tasto">
               <div class="tasto-layer"></div>
               <input type="submit" value="Login">
