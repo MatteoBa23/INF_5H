@@ -8,40 +8,8 @@
 
 
 <?php
-
-//inizializzazione delle variabili
-$nome = $cognome = $password = "";
-
-//inizializzazione variabili per errori
-$errNome = $errCognome = $errPasw = "";
-
-if(isset($_POST["nome"])){
-	$nome = trim($_POST["nome"]);
-	$cognome = trim($_POST["cognome"]);
-	$password = trim($_POST["password"]);
-}
-
-//controllo campo nome
-if(!preg_match('/^[a-zA-Z]*$/',$nome))
-{
-    echo $errNome = "Il nome deve contenere solo caratteri";
-}else if($nome=="")
-	$errNome="Campo obbligatorio";
-
-echo "<br>";
-
-//controllo campo cognome
-if(!preg_match('/^[a-zA-Z]*$/',$cognome))
-{
-    echo "Cognome non valido. Ammessi solo caratteri";
-
-}else if($cognome=="")
-	echo $errCognome = "Campo obbligatorio";
-
-echo "<br>"; 
-
+include "functions.php";
 ?>
-
 
     <div class="tab-form">
       <div class="title-text">
