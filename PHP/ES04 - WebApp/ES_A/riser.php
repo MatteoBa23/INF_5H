@@ -6,18 +6,14 @@
 <body>
 
 <?php
-include "functions.php";
-
 session_start();	//inizio sessione
 
-if(isset($_SESSION["username"] && empty($_SESSION["username"])))
-	echo "Benvenuto!";
+$username = $_SESSION["username"];
+if(!isset($username))
+    header("location: login.php");	//funzione va direttamente nella pagina indicata 
 else 
-{
-	header("location: login.php");	//funzione va direttamente nella pagina indicata 
-	die();							//distrugge la sessione
-}
+    echo "Benvenuto ".$username;
 ?>
-
+<a href="logout.php">Logout</a>
 </body>
 </html>
