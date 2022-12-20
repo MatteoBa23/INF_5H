@@ -8,12 +8,16 @@
 <?php
 session_start();	//inizio sessione
 
-$username = $_SESSION["username"];
-if(!isset($username))
-    header("location: login.php");	//funzione va direttamente nella pagina indicata 
-else 
-    echo "Benvenuto ".$username;
-?>
-<a href="logout.php">Logout</a>
+
+if(!isset($_SESSION["username"]) && empty($_SESSION["username"]))
+{
+    echo "Non hai effettuato il "; ?>
+    <a href="login.php">login</a><?php
+}else
+{
+    echo "Benvenuto ".$_SESSION["username"];?>
+    <a href="logout.php">Logout</a><?php
+}?>
+    
 </body>
 </html>
