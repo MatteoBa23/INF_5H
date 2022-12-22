@@ -1,3 +1,6 @@
+<?php
+session_start();	//avvio sessione
+?>
 <html>
 <head>
 <title>Validazione Form</title>
@@ -5,14 +8,17 @@
 </head>
 <body>  
 <?php
-session_start();	//avvio sessione
 if(isset($_POST["username"])){
 	$username = $_POST["username"];
 	$password = $_POST["password"];
 if($username!="admin" || $password!="psw")
 	echo "Nome utente o password errate";
 else
+{
+	$_SESSION["username"] = $_POST["username"];
+	$_SESSION["password"] = $_POST["password"];
 	header("location: riser.php");
+}
 }
 if(!isset($_SESSION["username"]))
 {?>
