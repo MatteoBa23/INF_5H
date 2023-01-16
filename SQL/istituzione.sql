@@ -31,5 +31,14 @@ ALTER TABLE studenti DROP COLUMN nome
 
 //inserisco i valori nei campi 
 INSERT
-INTO studenti (nome, data_nascita)
-VALUES ('Giannotti','1998/06/19');
+INTO studenti (matricola, cognome, nome, data_nascita, codice_scuola)
+VALUES ('m4f&a','Giannotti','Luigi','1998/06/25','2');
+
+//elimino istanze
+DELETE FROM studenti        //elimino la riga con il nome = 'Antonio'
+WHERE nome='Antonio';
+
+//aggiorno informazioni
+UPDATE studenti                //aggiorno il cognome solo nella riga con il cognome = 'Giannotti'
+SET voto = '3'
+WHERE cognome='Giannotti';
