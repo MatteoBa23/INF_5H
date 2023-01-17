@@ -5,10 +5,14 @@ CREAZIONE DATABASE E RELATIVE TABELLE
 CREATE DATABASE istituzione;    
 
 //creazione tabella studenti
-CREATE TABLE studenti (
-    matricola CHAR(15) PRIMARY KEY,
-  	cognome CHAR(20),
-    codice_scuola INT REFERENCES scuola(codice)
+CREATE TABLE studenti(
+	matricola CHAR(10) PRIMARY KEY,
+    nome CHAR(15) NOT NULL,
+    cognome CHAR(15) NOT NULL,
+    data_nascita DATE NOT NULL,
+    codice_scuola INT NOT NULL,
+    FOREIGN KEY(codice_scuola) REFERENCES scuola(codice)
+        ON UPDATE CASCADE
 );
 
 //creazione tabella scuola
@@ -31,8 +35,8 @@ ALTER TABLE studenti DROP COLUMN nome
 
 //inserisco i valori nei campi 
 INSERT
-INTO studenti (matricola, cognome, nome, data_nascita, codice_scuola)
-VALUES ('m4f&a','Giannotti','Luigi','1998/06/25','2');
+INTO studenti (matricola, nome, cognome, data_nascita, codice_scuola)
+VALUES ('D5RF8','Gianno','Giannotti','1998/06/12','2')
 
 //elimino istanze
 DELETE FROM studenti        //elimino la riga con il nome = 'Antonio'
