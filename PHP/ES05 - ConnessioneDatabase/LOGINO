@@ -1,0 +1,89 @@
+<?php
+session_start();	//avvio sessione
+require 'function.php';
+?>
+<html>
+<head>
+<title>Validazione Form</title>
+</head>
+<body>  
+<?php
+  // Definizione delle costanti per la connessione al database
+  define('DB_SERVER', 'localhost');
+  define('DB_NAME', 'gestione_utente');
+  define('DB_USER', 'nome_utente');
+  define('DB_PASSWORD', 'password');
+
+  try {
+    // Connessione al database
+    $pdo = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_NAME, DB_USER, DB_PASSWORD);
+    // Impostazione della modalità di gestione degli errori
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  } catch (PDOException $e) {
+    // Gestione dell'eccezione
+    echo "Errore di connessione: " . $e->getMessage();
+    exit;
+  }
+  
+  // Dichiarazione delle variabili per lo username e la password inseriti dall'utente
+  $username = $_POST['username']; $password = $_POST['password'];
+  try {
+    // pdo = new ... //Connessione al database (vedere l'esempio precedente) 
+    // Preparazione della query di selezione
+    $stmt = $pdo->prepare("SELECT * FROM utente WHERE username = :username AND password = :password");
+    // Bind dei parametri
+    $stmt->bindParam(':username', $username);
+    $stmt->bindParam(':password', $password);
+    // Esecuzione della query
+    $stmt->execute();
+    // Controllo se vi sono risultati
+    if ($stmt->rowCount() > 0) {
+      echo "Autenticazione eseguita";
+    } else {
+      echo "Autenticazione fallita";
+    }
+    $pdo = null; // Chiudi la connessione al database
+  } catch (PDOException $e) {
+    // Gestione dell'eccezione
+    echo "Errore di esecuzione della query: " . $e->getMessage();
+    exit;
+  }
+
+
+  // Chiudi la connessione al database
+  $pdo = null;
+
+
+
+
+if(isset($_POST["username"])){
+	
+	$username = $_POST["username"];
+	$psw = $_POST["psw"];
+}
+if($username!="admin" || $psw!="psw")
+	echo "Email o password errate";
+/*
+else
+{
+	$_SESSION["username"] = $_POST["username"];
+	$_SESSION["psw"] = $_POST["psw"];
+	header("location: riser.php");
+}
+*/
+
+
+
+if(!isset($_SESSION["username"]))
+{?>
+  <form name="frmLogin" action="login.php" method="post">
+	Username: <input type="text" name="username" placeholder="username"><br><br>
+    Password: <input type="password" name="psw" placeholder="password"><br><br>
+	<p>Non hai effettuato la registrazione? Registrati<p><a href="signup.php">qui</a><br><br>
+    <input type="submit" value="Invio">
+	
+  </form><?php
+}
+?>
+</body>
+</html>
