@@ -7,18 +7,15 @@ session_start();	//inzio sessione o prendo quella esistente
 </head>
 <body>
 <?php
-if(!isset($_SESSION["username"]) && empty($_SESSION["username"]))
-{
-	echo "Non hai effettuato il "; ?>
-	<a href="login.php">login</a><?php
-}else
-{
-	echo "Benvenuto "?><br>
-	<a href="logout.php">Logout</a><?php
+if(!isset($_SESSION['login'])){
+        echo "<h2>Devi eseguire il login per accedere alla sezione riservata</h2><br>";
+        echo "<br><a href='login.php'>Login</a><br>";
+        echo "<a href='index.php'>Home</a><br>";
+}else{
+        echo "<h2>Benvenuto nella sezione riservata</h2><br>";
+        echo "<a href='index.php'>Home</a><br>";
+        echo "<a href='logout.php'>Logout</a><br>";
 }
 ?>
-<br>
-<a href="index.php">Home page</a><br>
 </body>
 </html>
-
