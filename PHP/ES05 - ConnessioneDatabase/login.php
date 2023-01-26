@@ -1,33 +1,46 @@
 <?php
 session_start();	//avvio sessione
+require 'function.php';
 ?>
 <html>
 <head>
 <title>Validazione Form</title>
-<link rel="stylesheet" href="style.css" />
 </head>
 <body>  
 <?php
-if(isset($_POST["username"])){
-	$username = $_POST["username"];
-	$password = $_POST["password"];
-if($username!="admin" || $password!="psw")
-	echo "Nome utente o password errate";
-else
+//definizioni info per il database
+define('DB_SERVER', 'localhost');
+define('DB_NAME', 'gestione_utente');
+define('DB_USER', 'root');
+define('DB_PASSWORD', '');
+
+//session_destroy(); 
+
+if(!isset($_SESSION['login']))
 {
-	$_SESSION["username"] = $_POST["username"];
-	$_SESSION["password"] = $_POST["password"];
-	header("location: riser.php");
+	//echo "ciao";
+	if(!isset($_POST['Login']))
+	{?>
+  		<form name="frmLogin" action="login.php" method="POST">
+		Username: <input type="text" name="username" placeholder="username"><br><br>
+   		Password: <input type="password" name="password" placeholder="password"><br><br>
+		<p>Non hai effettuato la registrazione? Registrati<p><a href="signup.php">qui</a><br><br>
+   		<input type="submit" name="Login">
+ 		</form><?php
+	}else
+	{
+		login();
+	}
+	
+		
+}else
+{
+	echo "Hai già effettuato il login <br>";
+	echo "<a href='index.php'>Home page</a><br>";
+	echo "<a href='riser.php'>Pagina riservata</a><br>";
 }
-}
-if(!isset($_SESSION["username"]))
-{?>
-  <form name="frmLogin" action="login.php" method="post">
-    Username: <input type="text" name="username" placeholder="username"><br><br>
-    Password: <input type="password" name="password" placeholder="password"><br><br>
-    <input type="submit" value="Invio">
-  </form><?php
-}
+	
+
 ?>
 </body>
 </html>
