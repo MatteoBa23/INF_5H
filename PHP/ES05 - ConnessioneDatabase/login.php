@@ -8,17 +8,16 @@ require 'function.php';
 </head>
 <body>  
 <?php
-//definizioni info per il database
+//definizioni info del database
 define('DB_SERVER', 'localhost');
 define('DB_NAME', 'gestione_utente');
 define('DB_USER', 'root');
 define('DB_PASSWORD', '');
 
-//session_destroy(); 
-
+//controllo se esiste la variabile di sessione login
 if(!isset($_SESSION['login']))
 {
-	//echo "ciao";
+	//controllo se l'utente ha già effettuato il login
 	if(!isset($_POST['Login']))
 	{?>
   		<form name="frmLogin" action="login.php" method="POST">
@@ -28,15 +27,12 @@ if(!isset($_SESSION['login']))
    		<input type="submit" name="Login">
  		</form><?php
 	}else
-	{
-		login();
-	}
-	
-		
+		login();	
 }else
 {
 	echo "Hai già effettuato il login <br>";
 	echo "<a href='index.php'>Home page</a><br>";
+	echo "<a href='logout.php'>Logout</a><br>";
 	echo "<a href='riser.php'>Pagina riservata</a><br>";
 }
 	
