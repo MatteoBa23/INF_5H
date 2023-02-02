@@ -47,6 +47,7 @@ UPDATE studenti
 SET voto = '3'
 WHERE cognome='Giannotti';
 
+INSERT INTO scuola(codice, nome_scuola) VALUES ('01','ITCS Erasmo da Rotterdam')
 
 //istruzione congiunzione tabelle
 SELECT st.cognome, sc.nome_scuola
