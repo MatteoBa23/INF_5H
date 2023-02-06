@@ -7,8 +7,6 @@
 
     //preparo la query al database
     $pdo = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_NAME, DB_USER, DB_PASSWORD);
-
-	//include(login2($pdo));
 	
     //controlla se nel database esistono sia l'username che la password inserite precedentemente
     $query = "SELECT * FROM utente WHERE username='$username' AND psw='$psw'";
@@ -27,16 +25,19 @@
     }
     }
 	
-	/*
-	function registra() {
+	
+	function signup() {
+		
 		$username = $_POST['username'];
 		$psw = $_POST['password'];
-
+		$email = $_POST['email'];
+		$data_nascita = $_POST['data_nascita'];
+		
 		//preparo la query al database
 		$pdo = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_NAME, DB_USER, DB_PASSWORD);
 		
-		$query = "INSERT INTO utente VALUES(username='$username' AND psw='$psw')";
-		$result = $pdo->query($query);
+		$query = "INSERT INTO utente VALUES(NULL AND username='$username' AND psw='$psw' AND email='$email' AND data_nascita='$data_nascita')";
+		
 	}
-	*/
+	
 ?>
