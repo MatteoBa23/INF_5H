@@ -19,6 +19,26 @@ VALUES (NULL,'Giannotto','provozza');
 
 //AGIORNO TABELLE
 UPDATE utente
-SET psw = 'provola'
-WHERE id = 1;
+SET nome = "Giacomino"
+WHERE id=3;
+
+UPDATE utente
+SET cognome = "Tortellino"
+WHERE id=3;
+
+UPDATE utente
+SET username = "GiacoTorte"
+WHERE id=3;
+
+UPDATE utente
+SET psw = "Giaco"
+WHERE id=3;
+
+UPDATE utente
+SET email = "giacomino.tortellino@gmailcom"
+WHERE id=3;
+
+UPDATE utente
+SET nascita = "2003/01/21"
+WHERE id=3;
 
