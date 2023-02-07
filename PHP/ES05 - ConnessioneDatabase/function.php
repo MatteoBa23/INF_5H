@@ -27,7 +27,8 @@
 	
 	
 	function signup() {
-		
+		$nome = $_POST['nome'];
+		$cog = $_POST['cog'];
 		$username = $_POST['username'];
 		$psw = $_POST['password'];
 		$email = $_POST['email'];
@@ -36,8 +37,8 @@
 		//preparo la query al database
 		$pdo = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_NAME, DB_USER, DB_PASSWORD);
 		
-		$query = "INSERT INTO utente VALUES(NULL AND username='$username' AND psw='$psw' AND email='$email' AND data_nascita='$data_nascita')";
-		
+		$query = "INSERT INTO utente VALUES(id=NULL, nome='$nome', cognome='$cog', username='$username', psw='$psw', email='$email', data_nascita='$data_nascita' )";
+		$_SESSION['login'] = true;
 	}
 	
 ?>
