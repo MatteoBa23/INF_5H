@@ -11,7 +11,7 @@ CREATE TABLE studenti(
     cognome CHAR(15) NOT NULL,
     codice_scuola INT NOT NULL,
     FOREIGN KEY(codice_scuola) REFERENCES scuola(codice)
-        ON DELETE SET DEFAULT ON UPDATE CASCADE
+        ON UPDATE CASCADE
 );
 
 //creazione tabella scuola
@@ -53,3 +53,17 @@ INSERT INTO scuola(codice, nome_scuola) VALUES ('01','ITCS Erasmo da Rotterdam')
 SELECT st.cognome, sc.nome_scuola
 FROM studenti as st, scuola as sc
 WHERE st.codice_scuola=sc.codice
+
+//join a sinistra
+SELECT st.matricola, st.cognome, sc.nome_scuola
+FROM studenti AS st LEFT JOIN scuola AS sc 
+ON st.codice_scuola = sc.codice
+
+SELECT sc.nome_scuola, st.matricola, st.cognome
+FROM  scuola AS sc LEFT JOIN studenti AS st
+ON st.codice_scuola = sc.codice
+
+//inner join o join interno\
+SELECT st.matricola, st.cognome, sc.nome_scuola
+FROM studenti AS st INNER JOIN scuola AS sc 
+ON st.codice_scuola = sc.codice
