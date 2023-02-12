@@ -37,8 +37,9 @@
 		//preparo la query al database
 		$pdo = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_NAME, DB_USER, DB_PASSWORD);
 		
-		$query = "INSERT INTO utente VALUES(id=NULL, nome='$nome', cognome='$cog', username='$username', psw='$psw', email='$email', data_nascita='$data_nascita' )";
-		$_SESSION['login'] = true;
+		$query = "INSERT INTO utente (id,nome,cognome,username,psw,email,data_nascita)
+        VALUES(NULL,$nome,$cog,$username,$psw,$email,$data_nascita)";
+        echo "Registrazione Effettuata";
+        $_SESSION['login'] = true;
 	}
-	
 ?>
