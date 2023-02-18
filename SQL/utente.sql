@@ -19,15 +19,15 @@ CREATE TABLE utente (
 //INSERIMENTO DATI
 INSERT
 INTO utente (id,nome,cognome,username,psw,email,data_nascita)
-VALUES (NULL,'Giacomo','Provozza','GiacoProvo','giacomino','giacomo.provozza@gmail.com','2006/02/25');
+VALUES (NULL,'Giacomo','Provozza','giacomo','giacomino','giacomo.provozza@gmail.com','2006/02/25');
 
 INSERT
 INTO utente (id,nome,cognome,username,psw,email,data_nascita)
-VALUES (NULL,'Sofia','Esplosa','SofiEsplo','sofia','sofia.esplosa@gmail.com','2007/08/12');
+VALUES (NULL,'Sofia','Esplosa','sofia','sofi','sofia.esplosa@gmail.com','2007/08/12');
 
 INSERT
 INTO utente (id,nome,cognome,username,psw,email,data_nascita)
-VALUES (NULL,'Marco','Vino','MarcoVino','marcolino','marco.vino@gmail.com','2002/04/02');
+VALUES (NULL,'Marco','Vino','marco','marcolino','marco.vino@gmail.com','2002/04/02');
 
 //AGIORNO TABELLE
 UPDATE utente
