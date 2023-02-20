@@ -24,7 +24,7 @@ if(!isset($_SESSION['login']))
 		Username: <input type="text" name="username" placeholder="username"><br><br>
    		Password: <input type="password" name="password" placeholder="password"><br><br>
 		Informativa sulla privacy: <input type="checkbox"><br><br>
-		Non hai effettuato la registrazione? Registrati<a href="signup.php">qui</a><br><br>
+		Non hai effettuato la registrazione? Registrati <a href="signup.php">qui</a><br><br>
    		<input type="submit" name="Login">
  		</form><?php
 		echo "<a href='index.php'>Home page</a><br>";
