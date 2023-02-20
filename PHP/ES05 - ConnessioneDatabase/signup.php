@@ -14,7 +14,6 @@ define('DB_NAME', 'gestione_utente');
 define('DB_USER', 'root');
 define('DB_PASSWORD', '');
 
-
 if(!isset($_SESSION['login']))
 {
 	if(!isset($_POST['Submit'])){?>
@@ -36,8 +35,5 @@ if(!isset($_SESSION['login']))
 			
 }
 ?>
-
-
-
 </body>
 </html>
