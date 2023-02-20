@@ -24,11 +24,10 @@ if(!isset($_SESSION['login']))
 		Username: <input type="text" name="username" placeholder="username"><br><br>
    		Password: <input type="password" name="password" placeholder="password"><br><br>
 		Informativa sulla privacy: <input type="checkbox"><br><br>
-		<p>Nont ti ricordi la password? Cambiala<p><a href="reset.php">qui</a><br>
-		<p>Non hai effettuato la registrazione? Registrati<p><a href="signup.php">qui</a><br><br>
+		Non hai effettuato la registrazione? Registrati<a href="signup.php">qui</a><br><br>
    		<input type="submit" name="Login">
-		
  		</form><?php
+		echo "<a href='index.php'>Home page</a><br>";
 	}else
 		//verifico le credenziali inserite, utente già fatto il login
 		login();	
