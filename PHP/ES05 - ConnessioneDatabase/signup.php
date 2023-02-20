@@ -17,7 +17,9 @@ define('DB_PASSWORD', '');
 if(!isset($_SESSION['login']))
 {
 	if(!isset($_POST['Submit'])){?>
-  		<h2>Registrazione utente</h2>
+  		<br><h2>Registrazione utente</h2>
+		<p>>Per registrarti al sito devi compilare questi campi</p>
+		<p>* = Campi obbligatori</p><br>
 		<form name="frmLogin" action="<?=$_SERVER['PHP_SELF']?>" method="post">
 			Nome: <input type="text" name="nome"><br><br>
 			Cognome: <input type="text" name="cog"><br><br>
@@ -27,6 +29,7 @@ if(!isset($_SESSION['login']))
 			Data di nascita: <input type="date" name="data_nascita"><br><br>
 		<input type="submit" name="Submit" value="Invio">
 		</form><?php
+		echo "<a href='index.php'>Home Page</a><br>";
 	}else{
 		signup();
 		echo "Vai alla pagina riservata <br>";
