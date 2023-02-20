@@ -37,8 +37,8 @@
 		//preparo la query al database
 		$pdo = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_NAME, DB_USER, DB_PASSWORD);
 		
-        //inserisco i valori passati con il POST
-		$query = "INSERT INTO utente (id,nome,cognome,username,psw,email,data_nascita)
+        //inserisco i valori passati con il POST (NOMI COLONNE POSSONO CAMBIARE)
+		$query = "INSERT INTO utente (id,nome,cognome,username,psw,email,nascita)
         VALUES(NULL,'$nome','$cog','$username','$psw','$email','$data_nascita')";
          
         //controllo se la query è andata a buon fine
@@ -59,14 +59,14 @@
         $psw = $_POST['password'];
 
         $pdo = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_NAME, DB_USER, DB_PASSWORD);
-        $query = "UPDATE utente SET psw=$psw WHERE username=$username";
-
+        $query = "UPDATE utente SET psw='$psw' WHERE username='$username'";
+		
         //controllo se la query è andata a buon fine
         if($pdo->query($query)==true){
             echo "Password aggiornata ";
         }else
             echo "Impossibile aggiornare la password ";
-
+		
 		//chiudo la connessione al database
 		$pdo=null;
     }
