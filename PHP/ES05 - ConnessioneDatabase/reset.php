@@ -24,9 +24,10 @@ if(!isset($_POST['Login']))
         Nuova password: <input type="password" name="password"><br><br>
    	    <input type="submit" name="Login">
  	</form><?php
+	echo "<a href='index.php'>Home page</a><br>";
 }else {
     reset_psw();
-    echo "Password aggiornata, torna al login: <br>";
+    echo " torna al login: <br>";
     echo "<a href='login.php'>Login</a><br>";
 }
 ?>
