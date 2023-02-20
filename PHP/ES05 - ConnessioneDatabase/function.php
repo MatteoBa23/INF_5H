@@ -38,7 +38,7 @@
 		$pdo = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_NAME, DB_USER, DB_PASSWORD);
 		
         //inserisco i valori passati con il POST (NOMI COLONNE POSSONO CAMBIARE)
-		$query = "INSERT INTO utente (id,nome,cognome,username,psw,email,nascita)
+		$query = "INSERT INTO utente (id,nome,cognome,username,psw,email,data_nascita)
         VALUES(NULL,'$nome','$cog','$username','$psw','$email','$data_nascita')";
          
         //controllo se la query è andata a buon fine
@@ -66,6 +66,23 @@
             echo "Password aggiornata ";
         }else
             echo "Impossibile aggiornare la password ";
+		
+		//chiudo la connessione al database
+		$pdo=null;
+    }
+
+    function delete_psw(){
+        $email = $_POST['email'];
+        //$psw = $_POST['password'];
+
+        $pdo = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_NAME, DB_USER, DB_PASSWORD);
+        $query = "DELETE FROM utente WHERE email='$email'";
+        session_destroy();
+        //controllo se la query è andata a buon fine
+        if($pdo->query($query)==true){
+            echo "Account eliminato con successo ";
+        }else
+            echo "Impossibile eliminare l'account ";
 		
 		//chiudo la connessione al database
 		$pdo=null;
