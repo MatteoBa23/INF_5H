@@ -11,7 +11,7 @@ CREATE TABLE studenti(
     cognome CHAR(15) NOT NULL,
     codice_scuola INT NOT NULL,
     FOREIGN KEY(codice_scuola) REFERENCES scuola(codice)
-        ON UPDATE CASCADE
+        ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
 //creazione tabella scuola
