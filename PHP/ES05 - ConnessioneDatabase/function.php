@@ -4,7 +4,8 @@
     //variabili passate dal metodo POST del login
     $username = $_POST['username'];
     $psw = $_POST['password'];
-
+    $_SESSION['username'] = $_POST['username'];
+	    
     //preparo la query al database
     $pdo = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_NAME, DB_USER, DB_PASSWORD);
 	
@@ -16,7 +17,7 @@
     if ($result->rowCount() > 0){
         //esito positivo
         $_SESSION['login'] = true;
-        echo "<h3>Benvenuto utente </h3><br>";
+        echo "<h3>Benvenuto/a ".$_SESSION['username']." </h3><br>";
         echo "<a href='riser.php'>Pagina riservata</a>";
     }else{
         //esito negativo
