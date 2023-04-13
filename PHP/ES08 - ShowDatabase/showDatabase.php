@@ -22,12 +22,11 @@ $result = $pdo->query($query);
 	
 //visualizzo il database
 foreach($result as $riga){
-	print $riga["id"] ."". $riga["nome"] ."". $riga["cognome"];
+	echo "<tr>";
+	echo "<td align=\"center\">"; 
+	print $riga["id"] ."<td align=\"center\"> ". $riga["nome"] ."<td align=\"center\">". $riga["cognome"] ."</td>";
+	echo "</tr>";
 }
-    
-	
-
-
 ?>
 </body>
 </html>
