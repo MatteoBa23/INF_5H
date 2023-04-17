@@ -23,7 +23,7 @@ $result = $pdo->query($query);
 
 echo "<h3>Se vuoi ordine in ordine alfabetico o in ordine crescente una colonna, devi cliccare sulla colonna interessata</h3>";
 echo "<tr>";
-echo "<td align=\"center\"> <a href='show_ordered_table.php'>ID</a> <td align=\"center\"> <a href='show_ordered_table.php'>Nome</a>
+echo "<td align=\"center\"> $qs="<a href='show_ordered_table.php?ord=."$riga["id"]".'>"ID</a> <td align=\"center\"> <a href='show_ordered_table.php'>Nome</a>
 <td align=\"center\"> <a href='show_ordered_table.php'>Cognome</a>";
 echo "</tr>";
 
