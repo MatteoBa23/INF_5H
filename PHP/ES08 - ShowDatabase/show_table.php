@@ -20,11 +20,13 @@ $pdo = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_NAME, DB_USER, DB_PASSWORD)
 //controlla se nel database esistono sia l'username che la password inserite precedentemente
 $query = "SELECT * FROM utente";
 $result = $pdo->query($query);
-
+$qs="nulla";
 echo "<h3>Se vuoi ordine in ordine alfabetico o in ordine crescente una colonna, devi cliccare sulla colonna interessata</h3>";
 echo "<tr>";
-echo "<td align=\"center\"> $qs="<a href='show_ordered_table.php?ord=."$riga["id"]".'>"ID</a> <td align=\"center\"> <a href='show_ordered_table.php'>Nome</a>
-<td align=\"center\"> <a href='show_ordered_table.php'>Cognome</a>";
+echo "
+<td align='center'> $qs=\"<a href='show_ordered_table.php?ord=.$riga[id]'>ID</a>
+<td align='center'> <a href='show_ordered_table.php'>Nome</a>
+<td align='center'> <a href='show_ordered_table.php'>Cognome</a>";
 echo "</tr>";
 
 //visualizzo il database
